@@ -1,15 +1,24 @@
 <?php 
 
-$msg = null;
+	$result = odbc_fetch_array($query);	
 
-if(isset($_POST['login'])) {
-		if( 	$_POST['login'] == 'admin' &&
-				$_POST['senha'] == 'password') {
-					$msg = 'BEM-VINDO';
-				}else {
-					$msg = 'USUÁRIO OU SENHA INCORRETOS';
-				}
+	if(!empty($result['idUsuario']) &&
+	   !empty($result['idUsuario'])){
+		
+		$_SESSION['idUsuario'] =
+		$result['idUsuario'];
+		$_SESSION['tipoPerfil'] =
+		$result['tipoPerfil'];
+		$_SESSION['nomeUsuario'] = 
+		$result['nomeUsuario'];
+		
+		header("location:../menu");
+		
+	   }else{
+			$erro = 'Email ou Senha Incorretos';
+	   }	
 }
+	
+include('index.tpl.php');
 
-include_once('index.tpl.php');
 ?>
