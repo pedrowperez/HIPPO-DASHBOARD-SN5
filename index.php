@@ -12,4 +12,9 @@ if(isset($_POST['login'])) {
 }
 
 include_once('index.tpl.php');
+
+/*
+ * Minha alteracao
+ * */
+
 ?>
