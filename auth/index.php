@@ -3,20 +3,20 @@
 session_start();
 include('../db/index.php');
 
-if(isset($_POST['email']) && 
-   isset($_POST['senha'])){
+if(isset($_POST['username']) && 
+   isset($_POST['password'])){
 	
 	$email = str_replace('"','',
 			 str_replace("'",'',
 			 str_replace(";",'',
 			 str_replace("\\",'',
-			 $_POST['email']))));        //Proibe " ' ; \ 
+			 $_POST['username']))));        //Proibe " ' ; \ 
 	
 	$senha = str_replace('"','',
 			 str_replace("'",'',
 			 str_replace(";",'',
 			 str_replace("\\",'',
-			 $_POST['senha']))));       //Proibe " ' ; \ 
+			 $_POST['password']))));       //Proibe " ' ; \ 
 			 
 			 
 	$query = odbc_exec($db,"SELECT 
