@@ -196,7 +196,19 @@ input[type='submit'] {
 }
 
 /* modules/text.css */
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #a9a9a9;
+}
+.login label:hover {
+	background-color: white;
+	color: rgb(208, 33, 48);
+}
 
+
+input[type='text']:focus  , .login label {
+	background-color: white;
+	color: #d02130;
+}
 p {
   margin-bottom: 24px;
   margin-bottom: 1.5rem;

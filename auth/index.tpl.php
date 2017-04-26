@@ -14,6 +14,7 @@
   <body class="align">
 	
     <div class="grid">
+	<img src="../menu/img/LogoHippo.jpg" style="width: 315px;">
 	<?php 
 	if(isset($erro))
 		echo "<p class='text--center' style='color: red;font-weight: 500; padding: 10px; border: 1px solid grey; border-radius: 3px;'> $erro </p>";
