@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>HIPPO MERCADO</title>
+    <title>HIPPO DASHBOARD</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../menu/css/bootstrap.min.css" rel="stylesheet">
@@ -21,6 +21,8 @@
 
     <!-- Custom Fonts -->
     <link href="../menu/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:700" rel="stylesheet">
 
 
 </head>

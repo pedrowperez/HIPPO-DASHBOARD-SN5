@@ -9,6 +9,7 @@
 body {
     margin-top: 100px;
     background-color: #222;
+    font-family: 'Righteous', cursive;
 }
 
 @media(min-width:768px) {
@@ -57,7 +58,7 @@ body {
     padding-top: 15px;
     padding-bottom: 15px;
     line-height: 20px;
-    color: #999;
+    color: #fd4444;
 }
 
 .top-nav>li>a:hover,
@@ -66,7 +67,7 @@ body {
 .top-nav>.open>a:hover,
 .top-nav>.open>a:focus {
     color: #fff;
-    background-color: #000;
+    background-color: #fd4444;
 }
 
 .top-nav>.open>.dropdown-menu {
@@ -122,7 +123,7 @@ ul.alert-dropdown {
         border: none;
         border-radius: 0;
         overflow-y: auto;
-        background-color: #222;
+        background-color: #fff;
         bottom: 0;
         overflow-x: hidden;
         padding-bottom: 40px;
@@ -135,7 +136,7 @@ ul.alert-dropdown {
     .side-nav li a:hover,
     .side-nav li a:focus {
         outline: none;
-        background-color: #000 !important;
+        background-color: #fd4444 !important;
     }
 }
 

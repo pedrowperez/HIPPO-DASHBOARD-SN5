@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
 	<link href="http://localhost/HIPPO-DASHBOARD-SN5/css/style.css" rel="stylesheet">
-	<link href="http://wesellco.com/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="../menu/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   </head>
 
   <body class="align">
