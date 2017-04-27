@@ -17,7 +17,7 @@
 	<img src="../menu/img/LogoHippo.jpg" style="width: 315px;">
 	<?php 
 	if(isset($erro))
-		echo "<p class='text--center' style='color: red;font-weight: 500; padding: 10px; border: 1px solid grey; border-radius: 3px;'> $erro </p>";
+		echo "<p class='text--center' style='color: red;font-weight: 500;padding: 10px;text-transform: uppercase;border: 1px solid #ef4949;border-radius: 3px;font-weight: 700;'> $erro </p>";
 	if(isset($sucesso))
 		echo "<p class='text--center' style='color: green; font-weight: 700;padding: 10px; border: 1px solid grey; border-radius: 3px;'> $sucesso </p>";
 	?>
