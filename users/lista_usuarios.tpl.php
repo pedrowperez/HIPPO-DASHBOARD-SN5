@@ -52,7 +52,10 @@ include('../menu/index.body.tpl.php');
  }
  ?>
  </table>
-                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                           
+ </div>
+ </div>
+         <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
                                <i class="fa fa-user"></i> Adicionar novo usuário
                             </button>
                             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -106,8 +109,6 @@ include('../menu/index.body.tpl.php');
                                 </div>
                                 <!-- /.modal-dialog -->
                             </div>
- </div>
- </div>
  </div>
  
  <?php
