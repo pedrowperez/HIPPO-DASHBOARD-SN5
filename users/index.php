@@ -41,7 +41,7 @@ if(isset($_REQUEST['acao'])){
 				$usuarios[$i] = $r;
 				$i++;
 			}
-			include('lista_usuario_tpl.php');	
+			include('lista_usuarios.tpl.php');	
 					
 			break;
 		
