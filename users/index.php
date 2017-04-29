@@ -44,11 +44,78 @@ if(isset($_REQUEST['acao'])){
 			include('lista_usuarios.tpl.php');	
 					
 			break;
+
+		case 'editar':
+		
+			$idUsuario = is_numeric($_REQUEST['id']) ? $_REQUEST['id'] : 'NULL';
+		
+			if(isset($_POST['btnEditarUsuario'])){
+		
+				//trata nome
+				$nome = preg_replace(	"/[^a-zA-Z0-9 ]+/", 
+								"", 
+								$_POST['nome']);
+		
+				//trata email
+				$email_exploded = 
+				explode('@',$_POST['login']);
+				$email_comeco = preg_replace(	"/[^a-z0-9._+-]+/i", "",$email_exploded[0]);
+				$email_fim = preg_replace(	"/[^a-z0-9._+-]+/i", "",$email_exploded[1]);
+				$email = $email_comeco.'@'.$email_fim;
+				
+				//trata senha
+				$password = str_replace('"','',$_POST['senha']);
+				$password = str_replace("'",'',$password);
+				$password = str_replace(';','',$password);
+				
+				//trata perfil
+				$perfil = 	$_POST['perfil'] != 'A' 
+							&& $_POST['perfil'] != 'C' 
+							? 'C' :	$_POST['perfil'];
+				
+				//trata ativo
+				$_POST['ativo'] = 
+				!isset($_POST['ativo']) ? 0 : $_POST['ativo'];
+				$ativo = (bool) $_POST['ativo'];
+				$ativo = $ativo === true ? 1 : 0;
+				
+				if(odbc_exec($db, "	UPDATE 
+										Usuario
+									SET
+										loginUsuario = '$email',
+										senhaUsuario = HASHBYTES('SHA1','$password'),
+										nomeUsuario = '$nome',
+										tipoPerfil = '$perfil',
+										usuarioAtivo = $ativo
+									WHERE
+										idUsuario = $idUsuario")){
+					$msg = "Usu&aacute;rio editado com sucesso";					
+				}else{
+					$erro = "Erro ao editar o usu&aacute;rio";
+				}
+			}
+		
+			$query_usuario
+				= odbc_exec($db, 'SELECT 
+									idUsuario,
+									loginUsuario,
+									nomeUsuario,
+									tipoPerfil,
+									usuarioAtivo
+								FROM
+									Usuario
+								WHERE
+									idUsuario = '.$idUsuario);
+			$array_usuario 
+				= odbc_fetch_array($query_usuario);
+		
+			include('editar_usuario_tpl.php');
+			
+			break;
 		
 		default:
 			$erro = "A&ccedil;&atilde;o inv&aacute;lida";
 	}
-	
 }else{
 
 	//insere novo usuario
@@ -75,7 +142,8 @@ if(isset($_REQUEST['acao'])){
 					? 'C' :	$_POST['perfil'];
 		
 		//trata ativo
-		$_POST['ativo'] = !isset($_POST['ativo']) ? 0 : $_POST['ativo'];
+		$_POST['ativo'] = 
+		!isset($_POST['ativo']) ? 0 : $_POST['ativo'];
 		$ativo = (bool) $_POST['ativo'];
 		$ativo = $ativo === true ? 1 : 0;
 		

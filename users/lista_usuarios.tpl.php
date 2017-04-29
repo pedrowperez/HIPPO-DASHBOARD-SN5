@@ -46,7 +46,7 @@ include('../menu/index.body.tpl.php');
 				<td> {$usuario['nomeUsuario']}</td>
 				<td> {$usuario['tipoPerfil']}</td>
 				<td> {$usuario['usuarioAtivo']}</td>
-				<td> Editar</td>
+				<td><a href='?acao=editar&id={$usuario['idUsuario']}'>Editar</a></td>
 				<td> <a href='?acao=excluir&id={$usuario['idUsuario']}' > Excluir </a></td>
 			</tr>";
  }
@@ -110,6 +110,7 @@ include('../menu/index.body.tpl.php');
                                 <!-- /.modal-dialog -->
                             </div>
  </div>
+
  
  <?php
 
