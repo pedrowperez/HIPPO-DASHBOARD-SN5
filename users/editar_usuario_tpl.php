@@ -55,25 +55,23 @@ include('../menu/index.body.tpl.php');
                                         </div>
                                         <div class="form-group">
                                             <label>Ativo</label>
-                                            <?php
-				if($array_usuario['usuarioAtivo'] == 1){
-					echo '<input type="checkbox" name="ativo" checked>';
-				}else{
-					echo '<input type="checkbox" name="ativo">';
-				}
-				?>
-                                            <div class="checkbox">
-                                                <label>
-			<input type="hidden" name="id" value="<?php echo $array_usuario['idUsuario']; ?>">
-                                               
-                                                </label>
-                                            </div>
-                                        </div>
+                                            
+ 			<?php
+ 			if($array_usuario['usuarioAtivo'] == 1){
+ 				echo '<input type="checkbox" name="ativo" checked>';
+ 			}else{
+ 				echo '<input type="checkbox" name="ativo">';
+ 			}
+ 			?>
 
+ 		<input type="hidden" name="id" value="<?php echo $array_usuario['idUsuario']; ?>">
+ 		<input type="hidden" name="acao" value="editar">
+ 		</div>
+ 		<div class="form-group">
+ 	<input type="submit" class="btn btn-primary btn-lg" value="Editar" name="btnEditarUsuario">
+ 	<input type="button" class="btn btn-default" value="Voltar" onclick="javascript: location.href='index.php';">
 
-     <input type="submit" class="btn btn-primary btn-lg" value="Editar" name="btnEditarUsuario">
-	<input type="button" class="btn btn-default" value="Voltar" onclick="javascript: location.href='index.php';">
-
+ 	</div>
 </form>
 </div></div>
 <?php
