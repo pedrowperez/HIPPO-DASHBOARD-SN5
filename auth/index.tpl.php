@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
 	<link href="http://localhost/HIPPO-DASHBOARD-SN5/css/style.css" rel="stylesheet">
-	<link href="http://wesellco.com/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="../menu/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   </head>
 
   <body class="align">
@@ -17,7 +17,7 @@
 	<img src="../menu/img/LogoHippo.jpg" style="width: 315px;">
 	<?php 
 	if(isset($erro))
-		echo "<p class='text--center' style='color: red;font-weight: 500; padding: 10px; border: 1px solid grey; border-radius: 3px;'> $erro </p>";
+		echo "<p class='text--center' style='color: red;font-weight: 500;padding: 10px;text-transform: uppercase;border: 1px solid #ef4949;border-radius: 3px;font-weight: 700;'> $erro </p>";
 	if(isset($sucesso))
 		echo "<p class='text--center' style='color: green; font-weight: 700;padding: 10px; border: 1px solid grey; border-radius: 3px;'> $sucesso </p>";
 	?>

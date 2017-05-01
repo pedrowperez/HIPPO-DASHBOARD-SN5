@@ -2,7 +2,7 @@
 
 session_start();
 include('../db/index.php');
-if (!isset($_SESSION['nomeUsuario'])) {
+
 if(isset($_POST['username']) && 
    isset($_POST['password'])){
 	
@@ -48,7 +48,7 @@ if(isset($_POST['username']) &&
 			$erro = 'Email ou Senha Incorretos';
 	   }	
 }
-}
+
 	
 include('index.tpl.php');
 ?>
