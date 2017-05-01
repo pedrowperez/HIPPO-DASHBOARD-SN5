@@ -55,6 +55,7 @@ include('../menu/index.body.tpl.php');
                            
  </div>
  </div>
+
          <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
                                <i class="fa fa-user"></i> Adicionar novo usuário
                             </button>
@@ -109,9 +110,10 @@ include('../menu/index.body.tpl.php');
                                 </div>
                                 <!-- /.modal-dialog -->
                             </div>
+                            
  </div>
 
- 
+
  <?php
 
 
