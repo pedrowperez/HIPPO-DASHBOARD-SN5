@@ -46,8 +46,8 @@ include('../menu/index.body.tpl.php');
 				<td> {$usuario['nomeUsuario']}</td>
 				<td> {$usuario['tipoPerfil']}</td>
 				<td> {$usuario['usuarioAtivo']}</td>
-				<td><a href='?acao=editar&id={$usuario['idUsuario']}'>Editar</a></td>
-				<td> <a href='?acao=excluir&id={$usuario['idUsuario']}' > Excluir </a></td>
+				<td><a href='?acao=editar&id={$usuario['idUsuario']}'><i class='fa fa-edit'></i></a></td>
+				<td> <a href='?acao=excluir&id={$usuario['idUsuario']}' ><i class='fa fa-times'></i> </a></td>
 			</tr>";
  }
  ?>

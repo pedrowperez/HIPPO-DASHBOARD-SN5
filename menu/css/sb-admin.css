@@ -21,6 +21,22 @@ body {
 #wrapper {
     padding-left: 0;
 }
+.navbar-brand::before {
+    display: block;
+    content: '';
+    background-image: url(../img/hippo-logo.png);
+    background-position: 0px 0px;
+    width: 80px;
+    background-repeat: no-repeat;
+    height: 70px;
+    margin-top: -15px;
+    background-size: 100%;
+    position: absolute;
+    
+}
+.navbar-brand:hover::before {
+    background-image: url('../img/hippo-hover.png');
+}
 
 #page-wrapper {
     width: 100%;
@@ -58,7 +74,7 @@ body {
     padding-top: 15px;
     padding-bottom: 15px;
     line-height: 20px;
-    color: #fd4444;
+    color: #d02130;
 }
 
 .top-nav>li>a:hover,
@@ -67,7 +83,7 @@ body {
 .top-nav>.open>a:hover,
 .top-nav>.open>a:focus {
     color: #fff;
-    background-color: #fd4444;
+    background-color: #d02130;
 }
 
 .top-nav>.open>.dropdown-menu {
@@ -136,7 +152,7 @@ ul.alert-dropdown {
     .side-nav li a:hover,
     .side-nav li a:focus {
         outline: none;
-        background-color: #fd4444 !important;
+        background-color: #d02130 !important;
     }
 }
 
