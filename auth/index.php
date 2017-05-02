@@ -28,7 +28,7 @@ if(isset($_POST['username']) &&
 				   loginUsuario = '$email'
 				   AND
 				   senhaUsuario =	
-				   '$senha'");
+				   HASHBYTES('SHA1','$senha')");
 
   	$result = odbc_fetch_array($query);	
 
