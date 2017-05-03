@@ -52,8 +52,8 @@ include('../menu/index.body.tpl.php');
 				<td> {$produto['precProduto']}</td>
 				<td> {$produto['descontoPromocao']}</td>
 				<td> {$produto['qtdMinEstoque']}</td>
-				<td><a href='?acao=editar&id={$produto['idProduto']}'>Editar</a></td>
-				<td> <a href='?acao=excluir&id={$produto['idProduto']}' > Excluir </a></td>
+				<td><a href='?acao=editar&id={$produto['idProduto']}'><i class='fa fa-edit'></i></a></td>
+				<td> <a href='?acao=excluir&id={$produto['idProduto']}' ><i class='fa fa-times'></i></a></td>
 			</tr>";
  }
  ?>
