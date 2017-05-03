@@ -30,6 +30,7 @@ include('../menu/index.body.tpl.php');
 <table class="table table-hover table-striped">
 			<thead>
 				<th> ID</th>
+				<th> Imagem</th>
 				<th> Nome</th>
 				<th> Descrição</th>
 				<th> Preço</th>
@@ -42,15 +43,17 @@ include('../menu/index.body.tpl.php');
 <?php
 
  foreach ($produtos as $produto) {
+ $conteudo_base64 = base64_encode($produto['imagem']);
 	 echo "<tr>
 				<td>{$produto['idProduto']} </td>
+				<td><img src=\"data:image/jpeg;base64,".$conteudo_base64."\" width='100px'> </td>
 				<td>{$produto['nomeProduto']}</td>
 				<td> {$produto['descProduto']}</td>
 				<td> {$produto['precProduto']}</td>
 				<td> {$produto['descontoPromocao']}</td>
 				<td> {$produto['qtdMinEstoque']}</td>
-				<td><a href='?acao=editar&id={$produto['idProduto']}'>Editar</a></td>
-				<td> <a href='?acao=excluir&id={$produto['idProduto']}' > Excluir </a></td>
+				<td><a href='?acao=editar&id={$produto['idProduto']}'><i class='fa fa-edit'></i></a></td>
+				<td> <a href='?acao=excluir&id={$produto['idProduto']}' ><i class='fa fa-times'></i></a></td>
 			</tr>";
  }
  ?>

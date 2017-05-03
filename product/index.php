@@ -35,7 +35,8 @@ if(isset($_REQUEST['acao'])){
 									descProduto,
 									precProduto,
 									descontoPromocao,
-									qtdMinEstoque
+									qtdMinEstoque,
+									imagem
 								FROM
 									Produto');
 			$i = 0;							
@@ -104,7 +105,8 @@ if(isset($_REQUEST['acao'])){
 									descProduto,
 									precProduto,
 									descontoPromocao,
-									qtdMinEstoque
+									qtdMinEstoque,
+									imagem
 								FROM
 									Produto
 								WHERE
@@ -175,7 +177,8 @@ if(isset($_REQUEST['acao'])){
 									descProduto,
 									precProduto,
 									descontoPromocao,
-									qtdMinEstoque
+									qtdMinEstoque,
+									imagem
 								FROM
 									Produto');
 	$i = 0;							
