@@ -38,60 +38,57 @@ include('../menu/index.body.tpl.php');
 			</thead>
 
 <?php
-
- foreach ($usuarios as $usuario) {
+if($_SESSION['tipoPerfil'] == 'A'){
+					 foreach ($usuarios as $usuario) {
+	 
 	 echo "<tr>
 				<td>{$usuario['idUsuario']} </td>
 				<td>{$usuario['loginUsuario']}</td>
 				<td> {$usuario['nomeUsuario']}</td>
 				<td> {$usuario['tipoPerfil']}</td>
-				<td> {$usuario['usuarioAtivo']}</td>
+				<td> {$usuario['usuarioAtivo']}</td>				
 				<td><a href='?acao=editar&id={$usuario['idUsuario']}'><i class='fa fa-edit'></i></a></td>
 				<td> <a href='?acao=excluir&id={$usuario['idUsuario']}' ><i class='fa fa-times'></i> </a></td>
-			</tr>";
+			</tr>
+			";
+	
  }
- ?>
- </table>
-                           
- </div>
- </div>
-
-         <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-                               <i class="fa fa-user"></i> Adicionar novo usuário
+	echo "<button class='btn btn-primary btn-lg' data-toggle='modal' data-target='#myModal'>
+                               <i class='fa fa-user'></i> Adicionar novo usuário
                             </button>
-                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                            <h4 class="modal-title" id="myModalLabel">Adicionar novo usuário</h4>
+                            <div class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
+                                <div class='modal-dialog'>
+                                    <div class='modal-content'>
+                                        <div class='modal-header'>
+                                            <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>×</button>
+                                            <h4 class='modal-title' id='myModalLabel'>Adicionar novo usuário</h4>
                                         </div>
-                                        <div class="modal-body">
-                                            <form method="post" action="../users/" role="form">
-                                        <div class="form-group">
+                                        <div class='modal-body'>
+                                            <form method='post' action='../users/' role='form'>
+                                        <div class='form-group'>
                                             <label>Nome</label>
-                                            <input class="form-control" type="text" name="nome" placeholder="NOME">
+                                            <input class='form-control' type='text' name='nome' placeholder='NOME'>
                                         </div>
-                                        <div class="form-group">
+                                        <div class='form-group'>
                                             <label>Login</label>
-                                            <input class="form-control" type="text" name="login" placeholder="LOGIN">
+                                            <input class='form-control' type='text' name='login' placeholder='LOGIN'>
                                         </div>
-										<div class="form-group">
+										<div class='form-group'>
                                             <label>Senha</label>
-                                            <input type="password" class="form-control" name="senha" placeholder="SENHA">
+                                            <input type='password' class='form-control' name='senha' placeholder='SENHA'>
                                         </div>
-										 <div class="form-group">
+										 <div class='form-group'>
                                             <label>Tipo de Usuário</label>
-                                            <select name="perfil" class="form-control">
-                                                <option value="A">ADMINISTRADOR</option>
-                                                <option value="C">CLIENTE</option>
+                                            <select name='perfil' class='form-control'>
+                                                <option value='A'>ADMINISTRADOR</option>
+                                                <option value='C'>CLIENTE</option>
                                             </select>
                                         </div>
-                                        <div class="form-group">
+                                        <div class='form-group'>
                                             <label>Ativo</label>
-                                            <div class="checkbox">
+                                            <div class='checkbox'>
                                                 <label>
-                                                    <input type="checkbox" name="ativo" checked> ON
+                                                    <input type='checkbox' name='ativo' checked> Sim
                                                 </label>
                                             </div>
                                         </div>
@@ -99,9 +96,9 @@ include('../menu/index.body.tpl.php');
 				
                                     
                                         </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-                                            <input type="submit" value="Incluir" class="btn btn-primary btn-lg" name="btnNovoUsuario">	
+                                        <div class='modal-footer'>
+                                            <button type='button' class='btn btn-default' data-dismiss='modal'>Fechar</button>
+                                            <input type='submit' value='Incluir' class='btn btn-primary btn-lg' name='btnNovoUsuario'>	
                                             
                                         </div>
                                             </form>
@@ -109,7 +106,33 @@ include('../menu/index.body.tpl.php');
                                     <!-- /.modal-content -->
                                 </div>
                                 <!-- /.modal-dialog -->
-                            </div>
+                            </div>";
+				}else{
+					 foreach ($usuarios as $usuario) {
+	 
+	 echo "<tr>
+				<td>{$usuario['idUsuario']} </td>
+				<td>{$usuario['loginUsuario']}</td>
+				<td> {$usuario['nomeUsuario']}</td>
+				<td> {$usuario['tipoPerfil']}</td>
+				<td> {$usuario['usuarioAtivo']}</td>				
+				<td></td>
+				<td></td>
+			</tr>";
+	
+ 
+	 
+ }
+				}
+
+
+ ?>
+ </table>
+                           
+ </div>
+ </div>
+
+         
                             
  </div>
 

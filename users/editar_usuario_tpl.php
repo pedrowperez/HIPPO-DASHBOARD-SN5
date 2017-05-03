@@ -54,7 +54,7 @@ include('../menu/index.body.tpl.php');
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <label>Ativo</label>
+                                            <label>Sim</label>
                                             
  			<?php
  			if($array_usuario['usuarioAtivo'] == 1){
