@@ -124,7 +124,7 @@
                         <a href="../users/index.php"><i class="fa fa-fw fa fa-users"></i> Usuários</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-archive"></i> Produtos</a>
+                        <a href="../product/index.php"><i class="fa fa-fw fa-archive"></i> Produtos</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-fw fa-folder"></i> Categorias</a>
