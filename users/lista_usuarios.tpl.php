@@ -91,7 +91,7 @@ include('../menu/index.body.tpl.php');
                                             <label>Ativo</label>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" name="ativo" checked> ON
+                                                    <input type="checkbox" name="ativo" checked> Sim
                                                 </label>
                                             </div>
                                         </div>
