@@ -2,6 +2,7 @@
 include('../menu/index.head.tpl.php');
 include('../menu/index.body.tpl.php');
 
+
                             
 										
 											if(isset($msg)){echo "<div class='alert alert-success'> $msg </div>";}
@@ -14,7 +15,7 @@ include('../menu/index.body.tpl.php');
   
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Gerenciamento de Usuarios <small> Visão Geral</small>
+                            Gerenciamento de Usu&aacute;rios <small> Vis&atilde;o Geral</small>
                         </h1>
                     </div>
                 </div>
@@ -22,7 +23,7 @@ include('../menu/index.body.tpl.php');
 	<div class="col-lg-12">
 	<div class="panel panel-default">
                         <div class="panel-heading">
-                            Gerenciar usuários
+                            Gerenciar usu&aacute;rios
                         </div>
 						
                         <div class="panel-body">
@@ -54,14 +55,14 @@ if($_SESSION['tipoPerfil'] == 'A'){
 	
  }
 	echo "<button class='btn btn-primary btn-lg' data-toggle='modal' data-target='#myModal'>
-                               <i class='fa fa-user'></i> Adicionar novo usuário
+                               <i class='fa fa-user'></i> Adicionar novo usu&aacute;rios
                             </button>
                             <div class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
                                 <div class='modal-dialog'>
                                     <div class='modal-content'>
                                         <div class='modal-header'>
-                                            <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>×</button>
-                                            <h4 class='modal-title' id='myModalLabel'>Adicionar novo usuário</h4>
+                                            <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
+                                            <h4 class='modal-title' id='myModalLabel'>Adicionar novo Usu&aacute;rio</h4>
                                         </div>
                                         <div class='modal-body'>
                                             <form method='post' action='../users/' role='form'>
@@ -78,7 +79,7 @@ if($_SESSION['tipoPerfil'] == 'A'){
                                             <input type='password' class='form-control' name='senha' placeholder='SENHA'>
                                         </div>
 										 <div class='form-group'>
-                                            <label>Tipo de Usuário</label>
+                                            <label>Tipo de Usu&aacute;rio</label>
                                             <select name='perfil' class='form-control'>
                                                 <option value='A'>ADMINISTRADOR</option>
                                                 <option value='C'>CLIENTE</option>
