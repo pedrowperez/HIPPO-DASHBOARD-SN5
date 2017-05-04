@@ -54,8 +54,8 @@ if($_SESSION['tipoPerfil'] == 'A'){
 			";
 	
  }
-	echo "<button class='btn btn-primary btn-lg' data-toggle='modal' data-target='#myModal'>
-                               <i class='fa fa-user'></i> Adicionar novo usu&aacute;rios
+	echo "<button class='btn btn1 btn-lg' data-toggle='modal' data-target='#myModal'>
+                               <i class='fa fa-user'></i> Adicionar novos usu&aacute;rios
                             </button>
                             <div class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
                                 <div class='modal-dialog'>
