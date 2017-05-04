@@ -3,6 +3,8 @@ include('../menu/index.head.tpl.php');
 include('../menu/index.body.tpl.php');
 
 
+
+
                             
 										
 											if(isset($msg)){echo "<div class='alert alert-success'> $msg </div>";}
@@ -15,7 +17,7 @@ include('../menu/index.body.tpl.php');
   
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Gerenciamento de Produtos <small> Visão Geral</small>
+                            Gerenciamento de Produtos <small> Vis&atilde;o Geral</small>
                         </h1>
                     </div>
                 </div>
@@ -32,8 +34,8 @@ include('../menu/index.body.tpl.php');
 				<th> ID</th>
 				<th> Imagem</th>
 				<th> Nome</th>
-				<th> Descrição</th>
-				<th> Preço</th>
+				<th> Descri&ccedil;&atilde;o</th>
+				<th> Pre&ccedil;o</th>
 				<th> Desconto </th>
 				<th> Estoque </th>
 				<th> </th>
@@ -44,6 +46,7 @@ include('../menu/index.body.tpl.php');
 
  foreach ($produtos as $produto) {
  $conteudo_base64 = base64_encode($produto['imagem']);
+ 
 	 echo "<tr>
 				<td>{$produto['idProduto']} </td>
 				<td><img src=\"data:image/jpeg;base64,".$conteudo_base64."\" width='100px'> </td>
@@ -100,7 +103,7 @@ include('../menu/index.body.tpl.php');
 
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-                                            <input type="submit" value="Incluir" class="btn btn-primary btn-lg" name="btnNovoProduto">	
+                                            <input type="submit" value="Incluir" class="btn btn-primary btn-lg" name="btnEditarProduto">	
                                             
                                         </div>
                                             </form>
