@@ -17,7 +17,7 @@
     <link href="../menu/css/sb-admin.css" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
-    <link href="../menu/css/plugins/morris.css" rel="stylesheet">
+    <!-- <link href="../menu/css/plugins/morris.css" rel="stylesheet"> -->
 
     <!-- Custom Fonts -->
     <link href="../menu/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">

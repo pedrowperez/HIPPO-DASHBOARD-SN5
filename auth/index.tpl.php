@@ -9,12 +9,15 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
 	<link href="http://localhost/HIPPO-DASHBOARD-SN5/css/style.css" rel="stylesheet">
 	<link href="../menu/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	 <link href="https://fonts.googleapis.com/css?family=Lora:700" rel="stylesheet">
+	  <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+	
   </head>
 
   <body class="align">
 	
     <div class="grid">
-	<img src="../menu/img/LogoHippo.jpg" style="width: 315px;">
+	<img src="../menu/img/hippo-logo.png" style="width: 280px;">
 	<?php 
 	if(isset($erro))
 		echo "<p class='text--center' style='color: red;font-weight: 500;padding: 10px;text-transform: uppercase;border: 1px solid #ef4949;border-radius: 3px;font-weight: 700;'> $erro </p>";
@@ -34,7 +37,7 @@
         </div>
 
         <div class="form__field">
-          <input type="submit" value="ENTRAR">
+          <button class='btn btn1 btn-lg' type="submit"> ENTRAR </button>
         </div>
 
       </form>
