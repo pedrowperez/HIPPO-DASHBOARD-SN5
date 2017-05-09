@@ -247,3 +247,54 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
     background-color: red !important;
     color: white !important;
 }
+.btn1 {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  float: right;
+  padding: 10px 15px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-decoration: none;
+  color: #828282;
+  margin-bottom: 30px;
+  background-color: transparent;
+  -webkit-transition: color 0.125s 0.75s;
+  transition: color 0.125s 0.75s;
+}
+.btn1:before, .btn1:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-transition: border-color 0s 0.5s linear, -webkit-transform 1s linear;
+  transition: border-color 0s 0.5s linear, -webkit-transform 1s linear;
+  transition: transform 1s linear, border-color 0s 0.5s linear;
+  transition: transform 1s linear, border-color 0s 0.5s linear, -webkit-transform 1s linear;
+}
+.btn1:before {
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
+}
+.btn1:after {
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+
+.btn1:hover {
+  color: #d02130;
+}
+.btn1:hover:before, .btn1:hover:after {
+  border-color: #ff0000;
+}
+.btn1:hover:before {
+  -webkit-transform: skewY(180deg);
+          transform: skewY(180deg);
+}
+.btn1:hover:after {
+  -webkit-transform: skewX(-180deg);
+          transform: skewX(-180deg);
+}

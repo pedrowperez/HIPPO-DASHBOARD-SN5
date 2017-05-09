@@ -1,6 +1,6 @@
 <body>
 <div id="wrapper">
-
+		
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -105,7 +105,7 @@
                             <a href="#"><i class="fa fa-fw fa-envelope"></i> Chat</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-gear"></i> Configurações</a>
+                            <a href="#"><i class="fa fa-fw fa-gear"></i> Configura&ccedil;&otilde;es</a>
                         </li>
                         <li class="divider"></li>
                         <li>
@@ -121,7 +121,7 @@
                         <a href="#"><i class="fa fa-fw fa-tachometer"></i> Overview</a>
                     </li>
                     <li >
-                        <a href="../users/index.php"><i class="fa fa-fw fa fa-users"></i> Usuários</a>
+                        <a href="../users/index.php"><i class="fa fa-fw fa fa-users"></i> Usu&aacute;rios</a>
                     </li>
                     <li>
                         <a href="../product/index.php"><i class="fa fa-fw fa-archive"></i> Produtos</a>

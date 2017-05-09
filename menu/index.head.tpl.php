@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<?php header("Content-Type: text/html; charset=iso-8859-1",true); ?>
+   
    
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -17,7 +17,7 @@
     <link href="../menu/css/sb-admin.css" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
-    <link href="../menu/css/plugins/morris.css" rel="stylesheet">
+    <!-- <link href="../menu/css/plugins/morris.css" rel="stylesheet"> -->
 
     <!-- Custom Fonts -->
     <link href="../menu/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
