@@ -29,7 +29,7 @@ if(isset($_REQUEST['acao'])){
 				$erro = "ID inv&aacute;lido";
 			}
 			
-			$q = odbc_exec($db, 'SELECT 
+			$q = odbc_prepare($db, 'SELECT 
 									idProduto,
 									nomeProduto,
 									descProduto,
@@ -38,7 +38,21 @@ if(isset($_REQUEST['acao'])){
 									qtdMinEstoque,
 									imagem
 								FROM
-									Produto');
+									Produto
+								LIMIT
+									?
+								OFFSET		
+								?');
+			$lmt = 10;	
+			$offst;
+			//TO DO númeroPagina*offst = paginação!!!
+			$params = array($lmt, $offst);
+			
+			odbc_execute($params);
+								
+			$pager = 	
+
+			
 			$i = 0;							
 			while($r = odbc_fetch_array($q)){
 				$produtos[$i] = $r;
