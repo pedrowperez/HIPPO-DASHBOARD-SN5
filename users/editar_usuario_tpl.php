@@ -12,7 +12,7 @@ include('../menu/index.body.tpl.php');
   
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Atualizar Usuário <small> <?php echo $array_usuario['nomeUsuario']; ?></small>
+                            Atualizar Usu&#225;rio <small> <?php echo $array_usuario['nomeUsuario']; ?></small>
                         </h1>
                     </div>
                 </div>
@@ -32,7 +32,7 @@ include('../menu/index.body.tpl.php');
                                             <input type="password" class="form-control" name="senha" placeholder="SENHA">
                                         </div>
                                         <div class="form-group">
-                                            <label>Tipo de Usuário</label>
+                                            <label>Tipo de Usu&#225;rio</label>
                                             <select name="perfil" class="form-control">
                                                 <?php
 				if($array_usuario['tipoPerfil'] == 'A'){
