@@ -1,6 +1,7 @@
 <?php
 include('../db/index.php');
 include('../auth/controle_de_acesso.php');
+
 ini_set ('odbc.defaultlrl',9000000);
 
 
