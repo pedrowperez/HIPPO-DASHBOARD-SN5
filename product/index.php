@@ -181,6 +181,32 @@ if(isset($_REQUEST['acao'])){
 									imagem
 								FROM
 									Produto');
+	//inserir imagem								
+	$stmt = db_prepare($db_resource,'INSERT INTO Imagem 
+										(tituloImagem, bitmapImagem) 
+										VALUES 
+										(?,?)');	
+	$nomeImagem;
+		if(db_execute($stmt, array(	$nomeImagem,
+						$fileParaDB))){
+									
+			$msg_sucesso .= '<br>Imagem armazenada no Banco de Dados!';					
+		}else{
+			$msg_erro .= 'Erro ao salvar a Imagem no Banco de Dados!';
+		}		
+	}else{
+		if($_FILES['ArquivoUploaded']['size'] > 9000000){
+			$base = log($_FILES['ArquivoUploaded']['size']) / log(1024);
+			$sufixo = array("", "K", "M", "G", "T");
+			$tam_em_mb = round(pow(1024, $base - floor($base)),2).$sufixo[floor($base)];
+			$msg_erro = 'Tamanho m&aacute;ximo de imagem 9 Mb. Tamanho da imagem enviada: '.$tam_em_mb;
+		}else{
+			$msg_erro = 'S&oacute; s&atilde;o aceitos arquivos de imagem. Tamanho da imagem: '.$_FILES['ArquivoUploaded']['size'];
+		}
+	}
+}
+
+									
 	$i = 0;							
 	while($r = odbc_fetch_array($q)){
 		$produtos[$i] = $r;
