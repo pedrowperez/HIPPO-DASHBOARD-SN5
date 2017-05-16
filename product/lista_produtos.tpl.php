@@ -5,6 +5,7 @@ include('../menu/index.body.tpl.php');
 
 
 
+
                             
 										
 											if(isset($msg)){echo "<div class='alert alert-success'> $msg </div>";}
@@ -42,6 +43,7 @@ include('../menu/index.body.tpl.php');
 				<th> </th>
 			</thead>
 <?php
+
 if($_SESSION['tipoPerfil'] == 'A'){
 	foreach ($produtos as $produto) {
  $conteudo_base64 = base64_encode($produto['imagem']);
@@ -50,9 +52,9 @@ if($_SESSION['tipoPerfil'] == 'A'){
 				<td>{$produto['idProduto']} </td>
 				<td><img src=\"data:image/jpeg;base64,".$conteudo_base64."\" width='100px'> </td>
 				<td>{$produto['nomeProduto']}</td>
-				<td> {$produto['descProduto']}</td>
+				<td> ".substr($produto['descProduto'],0,80)."</td>    
 				<td> {$produto['precProduto']}</td>
-				<td> {$produto['descontoPromocao']}</td>
+				<td> {$produto['descontoPromocao']}</td> 
 				<td> {$produto['qtdMinEstoque']}</td>
 				<td><a href='?acao=editar&id={$produto['idProduto']}'><i class='fa fa-edit'></i></a></td>
 				<td> <a href='?acao=excluir&id={$produto['idProduto']}' ><i class='fa fa-times'></i></a></td>
