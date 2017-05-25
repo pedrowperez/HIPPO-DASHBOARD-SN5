@@ -52,7 +52,13 @@ if($_SESSION['tipoPerfil'] == 'A'){
 				<td>{$produto['idProduto']} </td>
 				<td><img src=\"data:image/jpeg;base64,".$conteudo_base64."\" width='100px'> </td>
 				<td>{$produto['nomeProduto']}</td>
-				<td> ".substr($produto['descProduto'],0,80)."</td>    
+				<td> ".substr($produto['descProduto'],0,80)."<button class='btn btn-primary' type='button' data-toggle='collapse' data-target='#collapseExample' aria-expanded='false' aria-controls='collapseExample'>
+  ver mais
+</button>
+<div class='collapse' id='collapseExample'>
+  <div class='well'>
+    ".substr($produto['descProduto'],80)."
+  </div>"."</td>    
 				<td> {$produto['precProduto']}</td>
 				<td> {$produto['descontoPromocao']}</td> 
 				<td> {$produto['qtdMinEstoque']}</td>
@@ -68,40 +74,33 @@ if($_SESSION['tipoPerfil'] == 'A'){
                                     <div class='modal-content'>
                                         <div class='modal-header'>
                                             <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
-                                            <h4 class='modal-title' id='myModalLabel'>Adicionar novo Usu&aacute;rio</h4>
+                                            <h4 class='modal-title' id='myModalLabel'>Adicionar novo Produto</h4>
                                         </div>
                                         <div class='modal-body'>
                                             <form method='post' action='../users/' role='form'>
                                         <div class='form-group'>
                                             <label>Nome</label>
-                                            <input class='form-control' type='text' name='nome' placeholder='NOME'>
+                                            <input class='form-control' type='text' name='nome' placeholder='Nome'>
                                         </div>
                                         <div class='form-group'>
-                                            <label>Login</label>
-                                            <input class='form-control' type='text' name='login' placeholder='LOGIN'>
+                                            <label>Descri&ccedil;&atilde;o</label>
+                                            <input class='form-control' type='text' name='login' placeholder='Descri&ccedil;&atilde;o'>
                                         </div>
 										<div class='form-group'>
-                                            <label>Senha</label>
-                                            <input type='password' class='form-control' name='senha' placeholder='SENHA'>
+                                            <label>Pre&ccedil;o</label>
+                                            <input type='number' class='form-control' name='preco' placeholder='Pre&ccedil;o'>
                                         </div>
-										 <div class='form-group'>
-                                            <label>Tipo de Usu&aacute;rio</label>
-                                            <select name='perfil' class='form-control'>
-                                                <option value='A'>ADMINISTRADOR</option>
-                                                <option value='C'>CLIENTE</option>
-                                            </select>
+										
+										<div class='form-group'>
+                                            <label>Desconto</label>
+                                            <input class='form-control' type='number' name='login' placeholder='Desconto'>
                                         </div>
-                                        <div class='form-group'>
-                                            <label>Ativo</label>
-                                            <div class='checkbox'>
-                                                <label>
-                                                    <input type='checkbox' name='ativo' checked> Sim
-                                                </label>
-                                            </div>
+										
+										<div class='form-group'>
+                                            <label>Estoque</label>
+                                            <input class='form-control' type='number' name='login' placeholder='Estoque'>
                                         </div>
-	
-				
-                                    
+																						
                                         </div>
                                         <div class='modal-footer'>
                                             <button type='button' class='btn btn-default' data-dismiss='modal'>Fechar</button>
