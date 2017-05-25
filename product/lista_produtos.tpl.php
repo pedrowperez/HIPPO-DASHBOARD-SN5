@@ -52,7 +52,13 @@ if($_SESSION['tipoPerfil'] == 'A'){
 				<td>{$produto['idProduto']} </td>
 				<td><img src=\"data:image/jpeg;base64,".$conteudo_base64."\" width='100px'> </td>
 				<td>{$produto['nomeProduto']}</td>
-				<td> ".substr($produto['descProduto'],0,80)."</td>    
+				<td> ".substr($produto['descProduto'],0,80)."<button class='btn btn-primary' type='button' data-toggle='collapse' data-target='#collapseExample' aria-expanded='false' aria-controls='collapseExample'>
+  ver mais
+</button>
+<div class='collapse' id='collapseExample'>
+  <div class='well'>
+    ".substr($produto['descProduto'],80)."
+  </div>"."</td>    
 				<td> {$produto['precProduto']}</td>
 				<td> {$produto['descontoPromocao']}</td> 
 				<td> {$produto['qtdMinEstoque']}</td>
