@@ -77,28 +77,31 @@ if($_SESSION['tipoPerfil'] == 'A'){
                                             <h4 class='modal-title' id='myModalLabel'>Adicionar novo Produto</h4>
                                         </div>
                                         <div class='modal-body'>
-                                            <form method='post' action='../users/' role='form'>
+                                            <form method='post' action='../product/' role='form' enctype='multipart/form-data'>
                                         <div class='form-group'>
                                             <label>Nome</label>
-                                            <input class='form-control' type='text' name='nome' placeholder='Nome'>
+                                            <input class='form-control' type='text' name='nomePr' placeholder='Nome'>
                                         </div>
+										<div class='form-group'>
+											<button name='ArquivoUploaded' id='ArquivoUploaded' class='btn'>Escolha uma imagem...</button>
+										</div>
                                         <div class='form-group'>
                                             <label>Descri&ccedil;&atilde;o</label>
-                                            <input class='form-control' type='text' name='login' placeholder='Descri&ccedil;&atilde;o'>
+                                            <input class='form-control' type='text' name='descPr' placeholder='Descri&ccedil;&atilde;o'>
                                         </div>
 										<div class='form-group'>
                                             <label>Pre&ccedil;o</label>
-                                            <input type='number' class='form-control' name='preco' placeholder='Pre&ccedil;o'>
+                                            <input type='number' class='form-control' name='precPr' placeholder='Pre&ccedil;o'>
                                         </div>
 										
 										<div class='form-group'>
                                             <label>Desconto</label>
-                                            <input class='form-control' type='number' name='login' placeholder='Desconto'>
+                                            <input class='form-control' type='number' name='descontoPr' placeholder='Desconto'>
                                         </div>
 										
 										<div class='form-group'>
                                             <label>Estoque</label>
-                                            <input class='form-control' type='number' name='login' placeholder='Estoque'>
+                                            <input class='form-control' type='number' name='qtdMinEs' placeholder='Estoque'>
                                         </div>
 																						
                                         </div>
