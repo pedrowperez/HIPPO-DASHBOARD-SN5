@@ -96,6 +96,7 @@ if(isset($_REQUEST['acao'])){
 									SET
 										nomeProduto = '$nomePr',
 										descProduto = '$descPr',
+										idCategoria = '$idCat',
 										precProduto = '$precPr',
 										descontoPromocao = '$descontoPr',
 										qtdMinEstoque = '$qtdMinEs'
@@ -112,6 +113,7 @@ if(isset($_REQUEST['acao'])){
 									idProduto,
 									nomeProduto,
 									descProduto,
+									idCategoria,
 									precProduto,
 									descontoPromocao,
 									qtdMinEstoque,
@@ -204,6 +206,7 @@ if(isset($_REQUEST['acao'])){
 									idProduto,
 									nomeProduto,
 									descProduto,
+									idCategoria,
 									precProduto,
 									descontoPromocao,
 									qtdMinEstoque,

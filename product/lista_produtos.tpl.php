@@ -36,6 +36,7 @@ include('../menu/index.body.tpl.php');
 				<th> Imagem</th>
 				<th> Nome</th>
 				<th> Descri&ccedil;&atilde;o</th>
+				<th> Categoria </th>
 				<th> Pre&ccedil;o</th>
 				<th> Desconto </th>
 				<th> Estoque </th>
@@ -53,23 +54,24 @@ if($_SESSION['tipoPerfil'] == 'A'){
 				<td>{$produto['idProduto']} </td>
 				<td><img src=\"data:image/jpeg;base64,".$conteudo_base64."\" width='100px'> </td>
 				<td>{$produto['nomeProduto']}</td>
-				<td> ".substr($produto['descProduto'],0,40);
+				<td> ".substr($produto['descProduto'],0,80);
 	
-	if(strlen($produto['descProduto']) > 40){
+	if(strlen($produto['descProduto']) > 80){
 	
-		echo "<button class='btn btn-primary' type='button' data-toggle='collapse' data-target='#".substr($produto['idProduto'],0,3)."' aria-expanded='false' aria-controls='collapseExample'>
+		echo "...<button class='btn btn-primary' type='button' data-toggle='collapse' data-target='#".substr($produto['idProduto'],0,3)."' aria-expanded='false' aria-controls='collapseExample'>
 						ver mais
 						</button>
 						<div class='collapse' id='".substr($produto['idProduto'],0,3)."'>
 						<div class='well'>
-						".substr($produto['descProduto'],40)."
+						".substr($produto['descProduto'],80)."
 						</div>";
 						
 	}
 	
-	echo "</td>    
-				<td> ".number_format($produto['precProduto'],2,",",".");"</td>
-				<td> ".number_format($produto['descontoPromocao'],1);"</td> 
+		echo "</td> 
+				<td> {$produto['idCategoria']}</td>
+				<td> R$ ".number_format($produto['precProduto'],2,",",".")."</td>
+				<td> ".number_format($produto['descontoPromocao'])." %</td> 
 				<td> {$produto['qtdMinEstoque']}</td>
 				<td><a href='?acao=editar&id={$produto['idProduto']}'><i class='fa fa-edit'></i></a></td>
 				<td> <a href='?acao=excluir&id={$produto['idProduto']}' ><i class='fa fa-times'></i></a></td>
@@ -94,6 +96,10 @@ if($_SESSION['tipoPerfil'] == 'A'){
                                         <div class='form-group'>
                                             <label>Descri&ccedil;&atilde;o</label>
                                             <input class='form-control' type='text' name='login' placeholder='Descri&ccedil;&atilde;o'>
+                                        </div>
+										<div class='form-group'>
+                                            <label>Categoria</label>
+                                            <input class='form-control' type='text' name='categoria' placeholder='categoria'>
                                         </div>
 										<div class='form-group'>
                                             <label>Pre&ccedil;o</label>
