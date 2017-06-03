@@ -137,9 +137,7 @@ if(isset($_REQUEST['acao'])){
 	//insere novo produto
 	if(isset($_POST['btnNovoProduto'])){
 		//trata nome
-		$nomePr = preg_replace(	"/[^a-zA-Z0-9 ]+/", 
-								"", 
-								$_POST['nomePr']);
+		$nomePr = $_POST['nomePr'];
 		//trata descrição
 		$descPr = preg_replace(	"/[^a-zA-Z0-9 ]+/", 
 								"", 
@@ -156,20 +154,20 @@ if(isset($_REQUEST['acao'])){
 		$qtdMinEs = preg_replace(	"/[^0-9 ]+/", 
 								"", 
 								$_POST['qtdMinEs']);
-								
-		$imagemPr = $_POST['ArquivoUploaded'];
-		if(empty($imagemPr)){
-				$imagemPr = null;
-		}else{		
+										
 		//inserir imagem	
-		if($_FILES[$imagemPr]['size'] > 9000000){
-			$base = log($_FILES[$imagemPr]['size']) / log(1024);
+		if($_FILES['ArquivoUploaded']['size'] > 9000000){
+			$base = log($_FILES['ArquivoUploaded']['size']) / log(1024);
 			$sufixo = array("", "K", "M", "G", "T");
 			$tam_em_mb = round(pow(1024, $base - floor($base)),2).$sufixo[floor($base)];
 			$msg_erro = 'Tamanho m&aacute;ximo de imagem 9 Mb. Tamanho da imagem enviada: '.$tam_em_mb;
 		}else{
-			$msg_erro = 'S&oacute; s&atilde;o aceitos arquivos de imagem. Tamanho da imagem: '.$_FILES[$imagemPr]['size'];
+			$msg_erro = 'S&oacute; s&atilde;o aceitos arquivos de imagem. Tamanho da imagem: '.$_FILES['ArquivoUploaded']['size'];
 		}		
+		
+		$file = fopen($_FILES['ArquivoUploaded']['tmp_name'],'rb');
+		$fileParaDB = fread($file, filesize($_FILES['ArquivoUploaded']['tmp_name']));
+		fclose($file);		
 		
 		$stmt = odbc_prepare($db,'INSERT INTO
 								Produto
@@ -186,14 +184,14 @@ if(isset($_REQUEST['acao'])){
 								$precPr,
 								$descontoPr,
 								$qtdMinEs,
-								$imagemPr))){								
+								$fileParaDB))){								
 			$msg = "Produto gravado com sucesso!";		
 			
 		}else{
 			$erro = "Erro ao gravar o produto!";
 			
 		}
-	}
+		}
 	}
 
 	$q = odbc_exec($db, 'SELECT 
