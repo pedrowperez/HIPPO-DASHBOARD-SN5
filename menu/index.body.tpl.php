@@ -15,7 +15,7 @@
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
-                <li class="dropdown">
+               <!-- <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
                     <ul class="dropdown-menu message-dropdown">
                         <li class="message-preview">
@@ -67,8 +67,8 @@
                             <a href="#">Read All New Messages</a>
                         </li>
                     </ul>
-                </li>
-                <li class="dropdown">
+                </li> -->
+                <!--<li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
                     <ul class="dropdown-menu alert-dropdown">
                         <li>
@@ -94,19 +94,20 @@
                             <a href="#">View All</a>
                         </li>
                     </ul>
-                </li>
+                </li> -->
                 <li class="dropdown">
                     <a href="../auth/index.php" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $_SESSION['nomeUsuario']; ?><b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="../profile"><i class="fa fa-fw fa-user"></i> Profile</a>
                         </li>
-                        <li>
+                        <!--<li>
                             <a href="#"><i class="fa fa-fw fa-envelope"></i> Chat</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-fw fa-gear"></i> Configura&ccedil;&otilde;es</a>
                         </li>
+						-->
                         <li class="divider"></li>
                         <li>
 							<a href="../logout"><i class="fa fa-fw fa-power-off"></i>Sair</a>
@@ -117,17 +118,17 @@
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-				     <li>
+				    <!-- <li>
                         <a href="#"><i class="fa fa-fw fa-tachometer"></i> Overview</a>
-                    </li>
+                    </li> -->
                     <li >
-                        <a href="../users/index.php"><i class="fa fa-fw fa fa-users"></i> Usu&aacute;rios</a>
+                        <a href="../users/"><i class="fa fa-fw fa fa-users"></i> Usu&aacute;rios</a>
                     </li>
                     <li>
-                        <a href="../product/index.php"><i class="fa fa-fw fa-archive"></i> Produtos</a>
+                        <a href="../product/"><i class="fa fa-fw fa-archive"></i> Produtos</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-folder"></i> Categorias</a>
+                        <a href="../category/"><i class="fa fa-fw fa-folder"></i> Categorias</a>
                     </li>
                
                 </ul>
