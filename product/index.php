@@ -96,16 +96,17 @@ if(isset($_REQUEST['acao'])){
 									SET
 										nomeProduto = '$nomePr',
 										descProduto = '$descPr',
-										idCategoria = '$idCat',
-										precProduto = '$precPr',
-										descontoPromocao = '$descontoPr',
-										qtdMinEstoque = '$qtdMinEs'
+										precProduto = $precPr,
+										descontoPromocao = $descontoPr,
+										qtdMinEstoque = $qtdMinEs,
+										imagem = '$imagemPr'
 									WHERE
-										idUsuario = $idProduto")){
-					$msg = "Usu&aacute;rio editado com sucesso";					
+										idProduto = $idProduto")){
+					$msg = "Produto editado com sucesso!";					
 				}else{
-					$erro = "Erro ao editar o usu&aacute;rio";
+					$erro = "Erro ao editar o produto!";
 				}
+				echo odbc_errormsg ($db);
 			}
 		
 			$query_produto
@@ -113,7 +114,6 @@ if(isset($_REQUEST['acao'])){
 									idProduto,
 									nomeProduto,
 									descProduto,
-									idCategoria,
 									precProduto,
 									descontoPromocao,
 									qtdMinEstoque,
@@ -134,12 +134,10 @@ if(isset($_REQUEST['acao'])){
 	}
 }else{
 
-	//insere novo usuario
+	//insere novo produto
 	if(isset($_POST['btnNovoProduto'])){
 		//trata nome
-		$nomePr = preg_replace(	"/[^a-zA-Z0-9 ]+/", 
-								"", 
-								$_POST['nomePr']);
+		$nomePr = $_POST['nomePr'];
 		//trata descrição
 		$descPr = preg_replace(	"/[^a-zA-Z0-9 ]+/", 
 								"", 
@@ -156,21 +154,8 @@ if(isset($_REQUEST['acao'])){
 		$qtdMinEs = preg_replace(	"/[^0-9 ]+/", 
 								"", 
 								$_POST['qtdMinEs']);
-		
-		//inserir imagem								
-		$stmt = db_prepare($db_resource,'INSERT INTO Imagem 
-											(tituloImagem, bitmapImagem) 
-											VALUES 
-											(?,?)');	
-		
-		if(db_execute($stmt, array(	$nomeImagem,
-							$fileParaDB))){
 										
-				$msg_sucesso .= '<br>Imagem armazenada no Banco de Dados!';					
-		}else{
-				$msg_erro .= 'Erro ao salvar a Imagem no Banco de Dados!';
-		}		
-
+		//inserir imagem	
 		if($_FILES['ArquivoUploaded']['size'] > 9000000){
 			$base = log($_FILES['ArquivoUploaded']['size']) / log(1024);
 			$sufixo = array("", "K", "M", "G", "T");
@@ -178,27 +163,34 @@ if(isset($_REQUEST['acao'])){
 			$msg_erro = 'Tamanho m&aacute;ximo de imagem 9 Mb. Tamanho da imagem enviada: '.$tam_em_mb;
 		}else{
 			$msg_erro = 'S&oacute; s&atilde;o aceitos arquivos de imagem. Tamanho da imagem: '.$_FILES['ArquivoUploaded']['size'];
-		}
-
+		}		
 		
+		$file = fopen($_FILES['ArquivoUploaded']['tmp_name'],'rb');
+		$fileParaDB = fread($file, filesize($_FILES['ArquivoUploaded']['tmp_name']));
+		fclose($file);		
 		
-		
-		if(odbc_exec($db, "	INSERT INTO
-								Usuario
-								(loginUsuario,
-								senhaUsuario,
-								nomeUsuario,
-								tipoPerfil,
-								usuarioAtivo)
+		$stmt = odbc_prepare($db,'INSERT INTO
+								Produto
+								(	nomeProduto,
+									descProduto,
+									precProduto,
+									descontoPromocao,
+									qtdMinEstoque,
+									imagem)
 							VALUES
-								('$email',
-					HASHBYTES('SHA1','$password'),
-								'$nome',
-								'$perfil',
-								$ativo)")){
-			$msg = "Usu&aacute;rio gravado com sucesso";					
+								(?, ?, ?, ?, ?, ?)');
+		if(odbc_execute($stmt, array($nomePr, 
+								$descPr,
+								$precPr,
+								$descontoPr,
+								$qtdMinEs,
+								$fileParaDB))){								
+			$msg = "Produto gravado com sucesso!";		
+			
 		}else{
-			$erro = "Erro ao gravar o usu&aacute;rio";
+			$erro = "Erro ao gravar o produto!";
+			
+		}
 		}
 	}
 
@@ -206,7 +198,6 @@ if(isset($_REQUEST['acao'])){
 									idProduto,
 									nomeProduto,
 									descProduto,
-									idCategoria,
 									precProduto,
 									descontoPromocao,
 									qtdMinEstoque,
