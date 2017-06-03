@@ -48,19 +48,28 @@ if($_SESSION['tipoPerfil'] == 'A'){
 	foreach ($produtos as $produto) {
  $conteudo_base64 = base64_encode($produto['imagem']);
  
-	 echo "<tr>
+ 
+	echo "<tr>
 				<td>{$produto['idProduto']} </td>
 				<td><img src=\"data:image/jpeg;base64,".$conteudo_base64."\" width='100px'> </td>
 				<td>{$produto['nomeProduto']}</td>
-				<td> ".substr($produto['descProduto'],0,80)."<button class='btn btn-primary' type='button' data-toggle='collapse' data-target='#collapseExample' aria-expanded='false' aria-controls='collapseExample'>
-  ver mais
-</button>
-<div class='collapse' id='collapseExample'>
-  <div class='well'>
-    ".substr($produto['descProduto'],80)."
-  </div>"."</td>    
-				<td> {$produto['precProduto']}</td>
-				<td> {$produto['descontoPromocao']}</td> 
+				<td> ".substr($produto['descProduto'],0,40);
+	
+	if(strlen($produto['descProduto']) > 40){
+	
+		echo "<button class='btn btn-primary' type='button' data-toggle='collapse' data-target='#".substr($produto['idProduto'],0,3)."' aria-expanded='false' aria-controls='collapseExample'>
+						ver mais
+						</button>
+						<div class='collapse' id='".substr($produto['idProduto'],0,3)."'>
+						<div class='well'>
+						".substr($produto['descProduto'],40)."
+						</div>";
+						
+	}
+	
+	echo "</td>    
+				<td> ".number_format($produto['precProduto'],2,",",".");"</td>
+				<td> ".number_format($produto['descontoPromocao'],1);"</td> 
 				<td> {$produto['qtdMinEstoque']}</td>
 				<td><a href='?acao=editar&id={$produto['idProduto']}'><i class='fa fa-edit'></i></a></td>
 				<td> <a href='?acao=excluir&id={$produto['idProduto']}' ><i class='fa fa-times'></i></a></td>

@@ -18,57 +18,29 @@ include('../menu/index.body.tpl.php');
                 </div>
                 <div class="row">
 <div class="col-lg-6">
-<form method="post" action="../users/">
+<form method="post" action="../product/">
  										 <div class="form-group">
-                                            <label>Nome</label>
-                                            <input class="form-control" type="text" value="<?php echo $array_produto['nomeUsuario']; ?>" name="nome" placeholder="NOME">
+                                            <label>Nome do Produto</label>
+                                            <input class="form-control" type="text" value="<?php echo $array_produto['nomeProduto']; ?>" name="nomePr">
                                         </div>
                                           <div class="form-group">
-                                            <label>Login</label>
-                                            <input class="form-control" value="<?php echo $array_produto['loginUsuario']; ?>" type="text" name="login" placeholder="LOGIN">
+                                            <label>Descrição</label>
+                                            <input class="form-control" value="<?php echo $array_produto['descProduto']; ?>" type="text" name="descPr">
                                         </div>
                                         <div class="form-group">
-                                            <label>Senha</label>
-                                            <input type="password" class="form-control" name="senha" placeholder="SENHA">
+                                            <label>Preço</label>
+                                            <input type="text" class="form-control" value="<?php echo $array_produto['precProduto']; ?>" type="text" name="precPr" >
                                         </div>
-                                        <div class="form-group">
-                                            <label>Tipo de Usuário</label>
-                                            <select name="perfil" class="form-control">
-                                                <?php
-				if($array_produto['tipoPerfil'] == 'A'){
-					echo '<option value="A" selected>
-							Administrador
-							</option>
-							<option value="C">
-							Cliente
-							</option>';
-				}else{
-					echo '<option value="A">
-							Administrador
-							</option>
-							<option value="C" selected>
-							Cliente
-							</option>';
-				}
-				?>
-                                            </select>
+										<div class="form-group">
+                                            <label>Desconto</label>
+                                            <input type="text" class="form-control" value="<?php echo $array_produto['descontoPromocao']; ?>" type="text" name="descontoPr">
                                         </div>
-                                        <div class="form-group">
-                                            <label>Sim</label>
-                                            
- 			<?php
- 			if($array_produto['usuarioAtivo'] == 1){
- 				echo '<input type="checkbox" name="ativo" checked>';
- 			}else{
- 				echo '<input type="checkbox" name="ativo">';
- 			}
- 			?>
-
- 		<input type="hidden" name="id" value="<?php echo $array_produto['idUsuario']; ?>">
- 		<input type="hidden" name="acao" value="editar">
- 		</div>
+										<div class="form-group">
+                                            <label>Quantidade em Estoque</label>
+                                            <input type="text" class="form-control" value="<?php echo $array_produto['qtdMinEstoque']; ?>" type="text" name="qtdMinEs">
+                                        </div>
  		<div class="form-group">
- 	<input type="submit" class="btn btn-primary btn-lg" value="Editar" name="btnEditarUsuario">
+ 	<input type="submit" class="btn btn-primary btn-lg" value="Editar" name="btnEditarProduto">
  	<input type="button" class="btn btn-default" value="Voltar" onclick="javascript: location.href='index.php';">
 
  	</div>

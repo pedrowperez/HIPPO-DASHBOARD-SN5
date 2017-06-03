@@ -71,50 +71,43 @@ if(isset($_REQUEST['acao'])){
 			if(isset($_POST['btnEditarProduto'])){
 		
 				//trata nome
-				$nome = preg_replace(	"/[^a-zA-Z0-9 ]+/", 
+		$nomePr = preg_replace(	"/[^a-zA-Z0-9 ]+/", 
 								"", 
-								$_POST['nome']);
-		
-				//trata email
-				$email_exploded = 
-				explode('@',$_POST['login']);
-				$email_comeco = preg_replace(	"/[^a-z0-9._+-]+/i", "",$email_exploded[0]);
-				$email_fim = preg_replace(	"/[^a-z0-9._+-]+/i", "",$email_exploded[1]);
-				$email = $email_comeco.'@'.$email_fim;
-				
-				//trata senha
-				$password = str_replace('"','',$_POST['senha']);
-				$password = str_replace("'",'',$password);
-				$password = str_replace(';','',$password);
-				
-				//trata perfil
-				$perfil = 	$_POST['perfil'] != 'A' 
-							&& $_POST['perfil'] != 'C' 
-							? 'C' :	$_POST['perfil'];
-				
-				//trata ativo
-				$_POST['ativo'] = 
-				!isset($_POST['ativo']) ? 0 : $_POST['ativo'];
-				$ativo = (bool) $_POST['ativo'];
-				$ativo = $ativo === true ? 1 : 0;
+								$_POST['nomePr']);
+		//trata descrição
+		$descPr = preg_replace(	"/[^a-zA-Z0-9 ]+/", 
+								"", 
+								$_POST['descPr']);
+		//trata preço
+		$precPr = preg_replace(	"/[^0-9 ]+/", 
+								"", 
+								$_POST['precPr']);
+		//trata desconto
+		$descontoPr = preg_replace(	"/[^0-9 ]+/", 
+								"", 
+								$_POST['descontoPr']);
+		//trata estoque
+		$qtdMinEs = preg_replace(	"/[^0-9 ]+/", 
+								"", 
+								$_POST['qtdMinEs']);
 				
 				if(odbc_exec($db, "	UPDATE 
 										Produto
 									SET
-										loginUsuario = '$email',
-										senhaUsuario = HASHBYTES('SHA1','$password'),
-										nomeUsuario = '$nome',
-										tipoPerfil = '$perfil',
-										usuarioAtivo = $ativo
+										nomeProduto = '$nomePr',
+										descProduto = '$descPr',
+										precProduto = '$precPr',
+										descontoPromocao = '$descontoPr',
+										qtdMinEstoque = '$qtdMinEs'
 									WHERE
-										idUsuario = $idUsuario")){
+										idUsuario = $idProduto")){
 					$msg = "Usu&aacute;rio editado com sucesso";					
 				}else{
 					$erro = "Erro ao editar o usu&aacute;rio";
 				}
 			}
 		
-			$query_usuario
+			$query_produto
 				= odbc_exec($db, 'SELECT 
 									idProduto,
 									nomeProduto,
@@ -127,8 +120,8 @@ if(isset($_REQUEST['acao'])){
 									Produto
 								WHERE
 									idProduto = '.$idProduto);
-			$array_usuario 
-				= odbc_fetch_array($query_usuario);
+			$array_produto 
+				= odbc_fetch_array($query_produto);
 		
 			include('editar_produto_tpl.php');
 			
@@ -140,34 +133,27 @@ if(isset($_REQUEST['acao'])){
 }else{
 
 	//insere novo usuario
-	if(isset($_POST['btnNovoUsuario'])){
+	if(isset($_POST['btnNovoProduto'])){
 		//trata nome
-		$nome = preg_replace(	"/[^a-zA-Z0-9 ]+/", 
+		$nomePr = preg_replace(	"/[^a-zA-Z0-9 ]+/", 
 								"", 
-								$_POST['nome']);
-		//trata email
-		$email_exploded = 
-		explode('@',$_POST['login']);
-		$email_comeco = preg_replace(	"/[^a-z0-9._+-]+/i", "",$email_exploded[0]);
-		$email_fim = preg_replace(	"/[^a-z0-9._+-]+/i", "",$email_exploded[1]);
-		$email = $email_comeco.'@'.$email_fim;
-		
-		//trata senha
-		$password = str_replace('"','',$_POST['senha']);
-		$password = str_replace("'",'',$password);
-		$password = str_replace(';','',$password);
-		
-		//trata perfil
-		$perfil = 	$_POST['perfil'] != 'A' 
-					&& $_POST['perfil'] != 'C' 
-					? 'C' :	$_POST['perfil'];
-		
-		//trata ativo
-		$_POST['ativo'] = 
-		!isset($_POST['ativo']) ? 0 : $_POST['ativo'];
-		$ativo = (bool) $_POST['ativo'];
-		$ativo = $ativo === true ? 1 : 0;
-		
+								$_POST['nomePr']);
+		//trata descrição
+		$descPr = preg_replace(	"/[^a-zA-Z0-9 ]+/", 
+								"", 
+								$_POST['descPr']);
+		//trata preço
+		$precPr = preg_replace(	"/[^0-9 ]+/", 
+								"", 
+								$_POST['precPr']);
+		//trata desconto
+		$descontoPr = preg_replace(	"/[^0-9 ]+/", 
+								"", 
+								$_POST['descontoPr']);
+		//trata estoque
+		$qtdMinEs = preg_replace(	"/[^0-9 ]+/", 
+								"", 
+								$_POST['qtdMinEs']);
 		
 		//inserir imagem								
 		$stmt = db_prepare($db_resource,'INSERT INTO Imagem 
