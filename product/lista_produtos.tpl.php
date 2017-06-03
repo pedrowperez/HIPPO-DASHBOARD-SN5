@@ -49,9 +49,9 @@ if($_SESSION['tipoPerfil'] == 'A'){
  $conteudo_base64 = base64_encode($produto['imagem']);
  
 	 echo "<tr>
-				<td>{$produto['idProduto']} </td>
+				<td><p>{$produto['idProduto']}</p> </td>
 				<td><img src=\"data:image/jpeg;base64,".$conteudo_base64."\" width='100px'> </td>
-				<td>{$produto['nomeProduto']}</td>
+				<td><p>{$produto['nomeProduto']}</p></td>
 				<td> ".substr($produto['descProduto'],0,80)."<button class='btn btn-primary' type='button' data-toggle='collapse' data-target='#collapseExample' aria-expanded='false' aria-controls='collapseExample'>
   ver mais
 </button>
@@ -59,9 +59,9 @@ if($_SESSION['tipoPerfil'] == 'A'){
   <div class='well'>
     ".substr($produto['descProduto'],80)."
   </div>"."</td>    
-				<td> {$produto['precProduto']}</td>
-				<td> {$produto['descontoPromocao']}</td> 
-				<td> {$produto['qtdMinEstoque']}</td>
+				<td> <p>{$produto['precProduto']}</p></td>
+				<td> <p>{$produto['descontoPromocao']}</p></td> 
+				<td> <p>{$produto['qtdMinEstoque']}</p></td>
 				<td><a href='?acao=editar&id={$produto['idProduto']}'><i class='fa fa-edit'></i></a></td>
 				<td> <a href='?acao=excluir&id={$produto['idProduto']}' ><i class='fa fa-times'></i></a></td>
 			</tr>";
@@ -83,7 +83,7 @@ if($_SESSION['tipoPerfil'] == 'A'){
                                             <input class='form-control' type='text' name='nomePr' placeholder='Nome'>
                                         </div>
 										<div class='form-group'>
-											<button name='ArquivoUploaded' id='ArquivoUploaded' class='btn'>Escolha uma imagem...</button>
+											<input type='file' name='ArquivoUploaded' id='ArquivoUploaded' class='btn' value='Escolha a imagem...'>
 										</div>
                                         <div class='form-group'>
                                             <label>Descri&ccedil;&atilde;o</label>
@@ -107,7 +107,7 @@ if($_SESSION['tipoPerfil'] == 'A'){
                                         </div>
                                         <div class='modal-footer'>
                                             <button type='button' class='btn btn-default' data-dismiss='modal'>Fechar</button>
-                                            <input type='submit' value='Incluir' class='btn btn-primary btn-lg' name='btnNovoUsuario'>	
+                                            <input type='submit' value='Incluir' class='btn btn-primary btn-lg' name='btnNovoProduto'>	
                                             
                                         </div>
                                             </form>
@@ -121,13 +121,13 @@ if($_SESSION['tipoPerfil'] == 'A'){
 					 foreach ($produtos as $produto) {
 		$conteudo_base64 = base64_encode($produto['imagem']);
 	 echo "<tr>
-				<td>{$produto['idProduto']} </td>
+				<td><p>{$produto['idProduto']}<p> </td>
 				<td><img src=\"data:image/jpeg;base64,".$conteudo_base64."\" width='100px'> </td>
-				<td>{$produto['nomeProduto']}</td>
-				<td> {$produto['descProduto']}</td>
-				<td> {$produto['precProduto']}</td>
-				<td> {$produto['descontoPromocao']}</td>
-				<td> {$produto['qtdMinEstoque']}</td>
+				<td><p>{$produto['nomeProduto']}<p></td>
+				<td><p>{$produto['descProduto']}<p></td>
+				<td><p>{$produto['precProduto']}<p></td>
+				<td><p>{$produto['descontoPromocao']}<p></td>
+				<td><p>{$produto['qtdMinEstoque']}<p></td>
 				
 				<td></td>
 				<td></td>

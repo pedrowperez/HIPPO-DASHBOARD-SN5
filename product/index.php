@@ -156,50 +156,44 @@ if(isset($_REQUEST['acao'])){
 		$qtdMinEs = preg_replace(	"/[^0-9 ]+/", 
 								"", 
 								$_POST['qtdMinEs']);
-		
-		//inserir imagem								
-		$stmt = db_prepare($db_resource,'INSERT INTO Imagem 
-											(tituloImagem, bitmapImagem) 
-											VALUES 
-											(?,?)');	
-		
-		if(db_execute($stmt, array(	$nomeImagem,
-							$fileParaDB))){
-										
-				$msg_sucesso .= '<br>Imagem armazenada no Banco de Dados!';					
-		}else{
-				$msg_erro .= 'Erro ao salvar a Imagem no Banco de Dados!';
-		}		
-
-		if($_FILES['ArquivoUploaded']['size'] > 9000000){
-			$base = log($_FILES['ArquivoUploaded']['size']) / log(1024);
+								
+		$imagemPr = $_POST['ArquivoUploaded'];
+		if(empty($imagemPr)){
+				$imagemPr = null;
+		}else{		
+		//inserir imagem	
+		if($_FILES[$imagemPr]['size'] > 9000000){
+			$base = log($_FILES[$imagemPr]['size']) / log(1024);
 			$sufixo = array("", "K", "M", "G", "T");
 			$tam_em_mb = round(pow(1024, $base - floor($base)),2).$sufixo[floor($base)];
 			$msg_erro = 'Tamanho m&aacute;ximo de imagem 9 Mb. Tamanho da imagem enviada: '.$tam_em_mb;
 		}else{
-			$msg_erro = 'S&oacute; s&atilde;o aceitos arquivos de imagem. Tamanho da imagem: '.$_FILES['ArquivoUploaded']['size'];
+			$msg_erro = 'S&oacute; s&atilde;o aceitos arquivos de imagem. Tamanho da imagem: '.$_FILES[$imagemPr]['size'];
 		}		
 		
-		if(odbc_exec($db, "	INSERT INTO
+		$stmt = odbc_prepare($db,'INSERT INTO
 								Produto
-								(idProduto,
-									nomeProduto,
+								(	nomeProduto,
 									descProduto,
 									precProduto,
 									descontoPromocao,
 									qtdMinEstoque,
 									imagem)
 							VALUES
-								('$nomePr',
-								 '$descPr',
-								'$precPr',
-								'$descontoPr',
-								'$qtdMinEs',
-								'$imagemPr')")){
-			$msg = "Produto gravado com sucesso!";					
+								(?, ?, ?, ?, ?, ?)');
+		if(odbc_execute($stmt, array($nomePr, 
+								$descPr,
+								$precPr,
+								$descontoPr,
+								$qtdMinEs,
+								$imagemPr))){								
+			$msg = "Produto gravado com sucesso!";		
+			
 		}else{
 			$erro = "Erro ao gravar o produto!";
+			
 		}
+	}
 	}
 
 	$q = odbc_exec($db, 'SELECT 
